@@ -1,0 +1,22 @@
+{
+  "name": "nimin2weeks",
+  "version": "1.0.0",
+  "description": "Developing nim in 2 weeks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tigressive/NimIn2Weeks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tigressive/NimIn2Weeks/issues"
+  },
+  "homepage": "https://github.com/Tigressive/NimIn2Weeks#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
