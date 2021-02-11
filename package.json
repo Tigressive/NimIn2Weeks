@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Tigressive/NimIn2Weeks#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "eslint": "^7.19.0",
+    "express": "^4.17.1",
+    "prettier": "^2.2.1"
   }
 }
