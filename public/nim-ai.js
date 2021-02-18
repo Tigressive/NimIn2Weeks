@@ -55,9 +55,11 @@ const get_move = (heaps, moves, misere = false, difficulty = 1.0) => {
     return [max_index, ideal_move];
   } else {
     let nim_sum = moves.reduce((a, b) => a ^ b, 0); // Goal is to make nim_sum 0
+
     if (nim_sum == 0) {
       return get_random_move(heaps, moves); // Losing situation, no good move
     }
+    
     for (let i = 0; i < heaps.length; i++) {
       target_size = heaps[i] ^ nim_sum;
       if (target_size < heap && moves.includes(heap - target_size)) {
