@@ -1,7 +1,7 @@
 
 
 class Game {
-    piles = [3,3,0]
+    piles = [3,3]
     turn = true;
     gameOver = false;
     winner = true;
@@ -14,10 +14,10 @@ class Game {
             default:
                 break;
             case 2:
-                piles = [2, 5, 7, 0];
+                piles = [2, 5, 7];
                 break;
             case 3:
-                piles = [2,3,8,9,0];
+                piles = [2,3,8,9];
                 break;
         }
     }
@@ -43,22 +43,22 @@ class Game {
     }
 
 
-    takeTurn(move){
-        if (!(move == 1 || move == 2) || this.piles[0] < move || this.gameOver){
+    takeTurn(move, pile){
+        if (!(move == 1 || move == 2)|| pile > this.piles.length || this.piles[pile] < move || this.gameOver){
             return false;
         }
 
-        this.piles[0] -= move;
-        temp = [];
-        if (this.piles[0] == 0){
-            for(i = 1; i < this.piles.length; i++)
-            {
-                temp[i - 1] = this.piles[i];
+        this.piles[pile] -= move;
+        temp = true;
+
+        for (i = 0; i < this.piles.length; i++){
+            if(this.piles[i] > 0){
+                temp = false;
             }
-            this.piles = temp;
         }
 
-        if (this.piles[0] == 0){
+
+        if (temp){
             this.gameOver = true;
             if (this.takeLastWin){
                 winner = this.turn;
