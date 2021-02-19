@@ -3,5 +3,5 @@ exports.index = (req, res) => {
 };
 
 exports.about = (req, res) => {
-  res.render("about");
-}
+  res.sendfile("./public/about.html");
+};

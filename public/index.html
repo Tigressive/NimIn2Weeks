@@ -6,17 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nim</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="indexP.js"></script>
   </head>
 
   <body>
     <h1>Welcome to Nim</h1>
+    <div id=headerMenu>
+      <form method='GET' action='/about'>
+          <div id="menuAbout" class="HBtn"><input type="submit" value="About"/></div>
+      
+      
+      </form>
+      
+
+
+    </div>
+
+
     <label class="switch">
       <input type="checkbox">
       <span class="slider round"></span>
     </label><h4>Lose by taking the last token</h4>
     <div style="background-color: lightblue; height: 600px; max-width: 500; min-width: 400;">
     </div>
-    <nav>
+    <nav id="gameBar">
       <button type="button" name="easyButton" formtarget="_self">Easy</button>
       <button type="button" name="meduimButton" formtarget="_self">Medium</button>
       <button type="button" name="hardButton" formtarget="_self">Hard</button>
