@@ -110,6 +110,7 @@ img {vertical-align: middle; border-radius: 5px 50px 30px 5px;}
   padding: 16px;
   font-size: 16px;
   border: none;
+  float: right;
 }
 
 
@@ -143,4 +144,4 @@ img {vertical-align: middle; border-radius: 5px 50px 30px 5px;}
 .dropdown:hover .dropdown-content {display: block;}
 
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {background-color: #3e8e41; float: right;}
