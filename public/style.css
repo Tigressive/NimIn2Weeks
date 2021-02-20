@@ -104,3 +104,9 @@ input:checked + .slider:before {
 
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+#gameBar {
+    flex: 1;
+    flex-direction: column;
+    background-color: brown;
+}

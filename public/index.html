@@ -13,15 +13,17 @@
       <button class="dropbtn">Menu</button>
       <div class="dropdown-content">
         <a href="about.html">Learn to Play</a>
+        <a href="leaderboard.html">Leaderboards</a>
       </div>
     </div>
   </head>
 
   <body>
-    <h1>Welcome to Nim</h1>
-      
-
-
+    <h1 style="text-align: center; 
+              justify-content: center;
+              font-size: 80px; 
+              background-color: brown;
+              height: 100px;">Welcome to Nim</h1>
     </div>
 
 
@@ -32,11 +34,15 @@
     <div style="background-color: lightblue; height: 600px; max-width: 500; min-width: 400;">
     </div>
     <nav id="gameBar">
-      <button type="button" name="easyButton" formtarget="_self">Easy</button>
-      <button type="button" name="meduimButton" formtarget="_self">Medium</button>
-      <button type="button" name="hardButton" formtarget="_self">Hard</button>
-      <button type="button" name="firstButton" formtarget="_self">1 Player</button>
-      <button type="button" name="secondButton" formtarget="_self">2 Player</button>
+      <div id="difficultyBar">
+            <input type="radio" id="easy" name="difficulty" value="Easy">
+            <label for="easy">Easy</label><br>
+            <input type="radio" id="medium" name="difficulty" value="Medium">
+            <label for="medium">Medium</label><br>
+            <input type="radio" id="hard" name="difficulty" value="Hard">
+            <label for="hard">Hard</label>
+      </div>
+      
     </nav>
 
   </body>
