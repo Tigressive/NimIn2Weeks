@@ -1,76 +1,76 @@
-
-
 class Game {
-    piles = [3,3]
-    turn = true;
-    gameOver = false;
-    winner = true;
-    takeLastWin = true;
+  piles = [3, 3];
+  legalMoves = [1, 2, 4];
+  turn = true;
+  gameOver = false;
+  winner = true;
+  takeLastWin = true;
 
-    constructor(difficulty, takeWin) {
-        this.takeLastWin = takeWin;
-        switch(difficulty)
-        {
-            default:
-                break;
-            case 2:
-                piles = [2, 5, 7];
-                break;
-            case 3:
-                piles = [2,3,8,9];
-                break;
-        }
+  constructor(difficulty, takeWin) {
+    this.takeLastWin = takeWin;
+    switch (difficulty) {
+      case 1:
+        piles = [21];
+      case 2:
+        piles = [26, 26];
+        break;
+      case 3:
+        piles = [31, 31, 31];
+        break;
+      default:
+        break;
+    }
+  }
+
+  get piles() {
+    return this.piles;
+  }
+
+  get turn() {
+    return this.turn;
+  }
+
+  get gameOver() {
+    return this.gameOver;
+  }
+
+  get winner() {
+    return this.winner;
+  }
+
+  get takeLastWin() {
+    return this.takeLastWin;
+  }
+
+  takeTurn(move, pile) {
+    if (
+      !legalMoves.includes(move) ||
+      pile > this.piles.length ||
+      this.piles[pile] < move ||
+      this.gameOver
+    ) {
+      return false;
     }
 
-    get piles() {
-        return this.piles
+    this.piles[pile] -= move;
+    temp = true;
+
+    for (i = 0; i < this.piles.length; i++) {
+      if (this.piles[i] > 0) {
+        temp = false;
+      }
     }
 
-    get turn() {
-        return this.turn
+    if (temp) {
+      this.gameOver = true;
+      if (this.takeLastWin) {
+        winner = this.turn;
+      } else {
+        winner = !this.turn;
+      }
     }
 
-    get gameOver() {
-        return this.gameOver
-    }
-
-    get winner() {
-        return this.winner
-    }
-
-    get takeLastWin() {
-        return this.takeLastWin
-    }
-
-
-    takeTurn(move, pile){
-        if (!(move == 1 || move == 2)|| pile > this.piles.length || this.piles[pile] < move || this.gameOver){
-            return false;
-        }
-
-        this.piles[pile] -= move;
-        temp = true;
-
-        for (i = 0; i < this.piles.length; i++){
-            if(this.piles[i] > 0){
-                temp = false;
-            }
-        }
-
-
-        if (temp){
-            this.gameOver = true;
-            if (this.takeLastWin){
-                winner = this.turn;
-            }
-            else{
-                winner = !this.turn;
-            }
-        }
-
-        this.turn = !this.turn;
-        return true;
-    }
-
-
+    this.turn = !this.turn;
+    return true;
+  }
 }
