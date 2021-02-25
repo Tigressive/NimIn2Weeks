@@ -1,5 +1,5 @@
 html {
-  background-color: gray;
+  background-color: lightgray;
 
 }
 .switch {
@@ -68,7 +68,7 @@ input:checked + .slider:before {
 
 /* This is styling for the dropdown nav button */
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #4caf4f00;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -85,7 +85,7 @@ input:checked + .slider:before {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #f1f1f100;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -93,14 +93,14 @@ input:checked + .slider:before {
 
 
 .dropdown-content a {
-  color: black;
+  color: rgb(255, 255, 255);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: rgba(221, 221, 221, 0);}
 
 
 .dropdown:hover .dropdown-content {display: block;}
@@ -124,7 +124,7 @@ input:checked + .slider:before {
 }
 
 #btnStart {
-  background-color: gray;
+  background-color: rgba(128, 128, 128, 0);
   padding: 10px 20px 10px 20px;
   margin: 10px; 
   color: white;
@@ -133,3 +133,40 @@ input:checked + .slider:before {
   align-items: center;
 
 }
+
+
+
+#video_box{
+  float:left;
+}
+
+#difficulty_video_overlays {
+position:absolute;
+padding-left: 111ch;
+padding-top: 65ch;
+float:right;
+  width:640px;
+  min-height:370px;
+  background-color:rgba(0, 0, 0, 0);
+  z-index:300000;
+}
+
+#nav_video_overlays {
+  position:absolute;
+  float:right;
+    width:640px;
+    min-height:370px;
+    background-color:rgba(0, 0, 0, 0);
+    z-index:300000;
+  }
+
+  #switch_video_overlays {
+    position:absolute;
+    padding-left: 210ch;
+    padding-top: 1ch;
+    float:right;
+      width:640px;
+      min-height:370px;
+      background-color:rgba(0, 0, 0, 0);
+      z-index:300000;
+    }
