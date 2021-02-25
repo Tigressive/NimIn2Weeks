@@ -1,5 +1,6 @@
 html {
   background-color: black;
+  overflow: hidden;
 
 }
 .switch {
@@ -173,7 +174,9 @@ float:right;
 
     #start_video_overlays {
       position:absolute;
-      padding-left: 100ch;
+
+      margin-left: 100ch;
+      /* padding-left: 100ch; */
       padding-top: 62ch;
       float:right;
         width:640px;
