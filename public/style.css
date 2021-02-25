@@ -142,7 +142,7 @@ input:checked + .slider:before {
 
 #difficulty_video_overlays {
 position:absolute;
-padding-left: 111ch;
+padding-left: 85ch;
 padding-top: 65ch;
 float:right;
   width:640px;
@@ -170,3 +170,14 @@ float:right;
       background-color:rgba(0, 0, 0, 0);
       z-index:300000;
     }
+
+    #start_video_overlays {
+      position:absolute;
+      padding-left: 100ch;
+      padding-top: 62ch;
+      float:right;
+        width:640px;
+        min-height:370px;
+        background-color:rgba(0, 0, 0, 0);
+        z-index:300000;
+      }
