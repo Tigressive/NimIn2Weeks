@@ -124,8 +124,7 @@ input:checked + .slider:before {
 #difficulty_video_overlays {
 position:absolute;
 margin-left: 85ch;
-/* padding-left: 85ch; */
-padding-top: 65ch;
+margin-top: 65ch;
 float:right;
   width:640px;
   min-height:370px;
@@ -144,8 +143,8 @@ float:right;
 
   #switch_video_overlays {
     position:absolute;
-    padding-left: 210ch;
-    padding-top: 1ch;
+    margin-left: 210ch;
+    margin-top: 1ch;
     float:right;
       width:640px;
       min-height:370px;
@@ -155,13 +154,21 @@ float:right;
 
     #start_video_overlays {
       position:absolute;
-
-      margin-left: 100ch;
-      /* padding-left: 100ch; */
-      padding-top: 62ch;
+      margin-left: 105ch;
+      margin-top: 65ch;
       float:right;
-        width:640px;
         min-height:370px;
         background-color:rgba(0, 0, 0, 0);
         z-index:300000;
       }
+
+      #multi_video_overlays {
+        position:absolute;  
+        margin-left: 135ch;        
+        margin-top: 65ch;
+        float:right;
+          width:640px;
+          min-height:370px;
+          background-color:rgba(0, 0, 0, 0);
+          z-index:300000;
+        }
