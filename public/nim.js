@@ -115,6 +115,10 @@ selectMove = (piles, legalMoves) => {
   return [move, pile];
 };
 
+displayWinner = (winner) => {
+  console.log("Winner: player " + winner);
+}
+
 while (!game.gameOver) {
   displayPiles(game.piles);
 
@@ -123,4 +127,4 @@ while (!game.gameOver) {
   game.takeTurn(move, pile);
 }
 
-console.log("Winner: player " + (game.winner ? 1 : 2));
+displayWinner(game.winner ? 1 : 2);
