@@ -1,3 +1,13 @@
+let difficulty = "Medium";
+let misere = false;
+
+switch (difficulty) {
+  case "Easy": difficulty = 1; break;
+  case "Medium": difficulty = 2; break;
+  case "Hard": difficulty = 3; break;
+  default: difficulty = 2;
+}
+
 class Game {
   piles = [3, 3];
   legalMoves = [1, 2, 4];
@@ -42,6 +52,10 @@ class Game {
     return this.takeLastWin;
   }
 
+  get legalMoves() {
+    return this.legalMoves;
+  }
+
   takeTurn(move, pile) {
     if (
       !legalMoves.includes(move) ||
@@ -73,4 +87,31 @@ class Game {
     this.turn = !this.turn;
     return true;
   }
+}
+
+let game = Game(difficulty, misere);
+
+// TODO: Render piles for user
+displayPiles = (piles) => {
+  console.log(piles);
+}
+
+// TODO: Get input from user(s)/ai
+selectMove = (piles, legalMoves) => {
+  move = legalMoves[Math.floor(Math.random() * legalMoves.length)];
+  pile = Math.floor(Math.random() * piles.length);
+  while (piles[pile] < move || piles[pile] == 0) {
+    move = legalMoves[Math.floor(Math.random() * legalMoves.length)];
+    pile = Math.floor(Math.random() * piles.length);
+  }
+
+  return [move, pile];
+}
+
+while (!game.gameOver()) {
+  displayPiles(game.piles());
+
+  selectMove(game.piles(), game.legalMoves());
+  
+  game.takeTurn(move, pile);
 }
