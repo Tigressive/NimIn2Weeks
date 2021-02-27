@@ -96,6 +96,7 @@ displayPiles = (piles) => {
   console.log(piles);
 }
 
+// TODO: Get input from user(s)/ai
 selectMove = (piles, legalMoves) => {
   move = legalMoves[Math.floor(Math.random() * legalMoves.length)];
   pile = Math.floor(Math.random() * piles.length);
