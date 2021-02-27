@@ -2,10 +2,17 @@ let difficulty = "Medium";
 let misere = false;
 
 switch (difficulty) {
-  case "Easy": difficulty = 1; break;
-  case "Medium": difficulty = 2; break;
-  case "Hard": difficulty = 3; break;
-  default: difficulty = 2;
+  case "Easy":
+    difficulty = 1;
+    break;
+  case "Medium":
+    difficulty = 2;
+    break;
+  case "Hard":
+    difficulty = 3;
+    break;
+  default:
+    difficulty = 2;
 }
 
 class Game {
@@ -20,12 +27,12 @@ class Game {
     this.takeLastWin = takeWin;
     switch (difficulty) {
       case 1:
-        piles = [21];
+        this.piles = [21];
       case 2:
-        piles = [26, 26];
+        this.piles = [26, 26];
         break;
       case 3:
-        piles = [31, 31, 31];
+        this.piles = [31, 31, 31];
         break;
       default:
         break;
@@ -58,7 +65,7 @@ class Game {
 
   takeTurn(move, pile) {
     if (
-      !legalMoves.includes(move) ||
+      !this.legalMoves.includes(move) ||
       pile > this.piles.length ||
       this.piles[pile] < move ||
       this.gameOver
@@ -67,9 +74,9 @@ class Game {
     }
 
     this.piles[pile] -= move;
-    temp = true;
+    let temp = true;
 
-    for (i = 0; i < this.piles.length; i++) {
+    for (let i = 0; i < this.piles.length; i++) {
       if (this.piles[i] > 0) {
         temp = false;
       }
@@ -78,9 +85,9 @@ class Game {
     if (temp) {
       this.gameOver = true;
       if (this.takeLastWin) {
-        winner = this.turn;
+        this.winner = this.turn;
       } else {
-        winner = !this.turn;
+        this.winner = !this.turn;
       }
     }
 
@@ -89,12 +96,12 @@ class Game {
   }
 }
 
-let game = Game(difficulty, misere);
+let game = new Game(difficulty, misere);
 
 // TODO: Render piles for user
 displayPiles = (piles) => {
   console.log(piles);
-}
+};
 
 // TODO: Get input from user(s)/ai
 selectMove = (piles, legalMoves) => {
@@ -106,12 +113,14 @@ selectMove = (piles, legalMoves) => {
   }
 
   return [move, pile];
-}
+};
 
-while (!game.gameOver()) {
-  displayPiles(game.piles());
+while (!game.gameOver) {
+  displayPiles(game.piles);
 
-  selectMove(game.piles(), game.legalMoves());
-  
+  selectMove(game.piles, game.legalMoves);
+
   game.takeTurn(move, pile);
 }
+
+console.log("Winner: player " + (game.winner ? 1 : 2));
