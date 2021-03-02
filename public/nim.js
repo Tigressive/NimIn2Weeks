@@ -122,9 +122,9 @@ displayWinner = (winner) => {
 while (!game.gameOver) {
   displayPiles(game.piles);
 
-  selectMove(game.piles, game.legalMoves);
+  let move = selectMove(game.piles, game.legalMoves);
 
-  game.takeTurn(move, pile);
+  game.takeTurn(move[0], move[1]);
 }
 
 displayWinner(game.winner ? 1 : 2);
