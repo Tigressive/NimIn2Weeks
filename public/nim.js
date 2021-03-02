@@ -1,22 +1,5 @@
-let difficulty = "Medium";
-let misere = false;
-
-switch (difficulty) {
-  case "Easy":
-    difficulty = 1;
-    break;
-  case "Medium":
-    difficulty = 2;
-    break;
-  case "Hard":
-    difficulty = 3;
-    break;
-  default:
-    difficulty = 2;
-}
-
 class Game {
-  piles = [3, 3];
+  piles = [26, 26];
   legalMoves = [1, 2, 4];
   turn = true;
   gameOver = false;
@@ -97,11 +80,28 @@ class Game {
   }
 }
 
+let difficulty = "Medium";
+let misere = false;
+
+switch (difficulty) {
+  case "Easy":
+    difficulty = 1;
+    break;
+  case "Medium":
+    difficulty = 2;
+    break;
+  case "Hard":
+    difficulty = 3;
+    break;
+  default:
+    difficulty = 2;
+}
+
 let game = new Game(difficulty, misere);
 
 // TODO: Render piles for user
 displayPiles = (piles) => {
-  console.log(piles);
+  console.log('State', piles);
 };
 
 // TODO: Get input from user(s)/ai
@@ -113,6 +113,7 @@ selectMove = (piles, legalMoves) => {
     pile = Math.floor(Math.random() * piles.length);
   }
 
+  console.log('Move', [move, pile]); // DO NOT REMOVE
   return [move, pile];
 };
 
@@ -129,3 +130,5 @@ while (!game.gameOver) {
 }
 
 displayWinner(game.winner ? 1 : 2);
+
+delete game;
