@@ -124,7 +124,7 @@ input:checked + .slider:before {
 #difficulty_video_overlays {
 position:absolute;
 margin-left: 85ch;
-margin-top: 75ch;
+margin-top: 80ch;
 float:right;
   width:640px;
   min-height:370px;
@@ -154,8 +154,8 @@ float:right;
 
     #start_video_overlays {
       position:absolute;
-      margin-left: 105ch;
-      margin-top: 75ch;
+      margin-left: 108ch;
+      margin-top: 80ch;
       float:right;
         min-height:370px;
         background-color:rgba(0, 0, 0, 0);
@@ -165,7 +165,7 @@ float:right;
       #multi_video_overlays {
         position:absolute;  
         margin-left: 135ch;        
-        margin-top: 75ch;
+        margin-top: 80ch;
         float:right;
           width:640px;
           min-height:370px;
