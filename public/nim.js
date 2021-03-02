@@ -28,6 +28,7 @@ class Game {
     switch (difficulty) {
       case 1:
         this.piles = [21];
+        break;
       case 2:
         this.piles = [26, 26];
         break;
