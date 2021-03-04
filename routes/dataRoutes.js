@@ -23,7 +23,6 @@ const UserSchema = new Schema({
     gamesWon: Number
 }, {collection: "Users"});
 
-const User = mongoose.model(userCollectionName, UserSchema);
 
 exports.signupPost = (req, res) => {    
     var body = req.body;
