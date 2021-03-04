@@ -103,12 +103,11 @@ let game = new Game(difficulty, misere);
 displayPiles = (piles) => {
   let strPiles = "";
   let img = new Image;
-  img.src = "images/fire.png"
+  img.src = "images/fire.png";
   img.width = 50;
-  img.setAttribute(value) = 1;
   for (let pile of piles) {
     for (let i = 0; i < pile; i++) {
-      strPiles += img.outerHTML + " ";
+      strPiles += img.outerHTML;
     
     }
     strPiles += "<br>";
