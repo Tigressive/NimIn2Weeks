@@ -102,9 +102,14 @@ let game = new Game(difficulty, misere);
 // TODO: Render piles for user
 displayPiles = (piles) => {
   let strPiles = "";
+  let img = new Image;
+  img.src = "images/fire.png"
+  img.width = 50;
+  img.setAttribute(value) = 1;
   for (let pile of piles) {
     for (let i = 0; i < pile; i++) {
-      strPiles += "| ";
+      strPiles += img.outerHTML + " ";
+    
     }
     strPiles += "<br>";
   }
@@ -145,3 +150,6 @@ displayWinner = (winner) => {
 };
 
 displayPiles(game.piles);
+
+
+
