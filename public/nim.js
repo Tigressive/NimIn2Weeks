@@ -1,6 +1,6 @@
 class Game {
   piles = [26, 26];
-  legalMoves = [1, 2, 4];
+  legalMoves = [1, 2];
   turn = true;
   gameOver = false;
   winner = true;
@@ -10,13 +10,13 @@ class Game {
     this.takeLastWin = takeWin;
     switch (difficulty) {
       case 1:
-        this.piles = [21];
+        this.piles = [3, 3];
         break;
       case 2:
-        this.piles = [26, 26];
+        this.piles = [2, 5, 7];
         break;
       case 3:
-        this.piles = [31, 31, 31];
+        this.piles = [2, 3, 8, 9];
         break;
       default:
         break;
@@ -101,34 +101,47 @@ let game = new Game(difficulty, misere);
 
 // TODO: Render piles for user
 displayPiles = (piles) => {
-  console.log('State', piles);
+  let strPiles = "";
+  for (let pile of piles) {
+    for (let i = 0; i < pile; i++) {
+      strPiles += "| ";
+    }
+    strPiles += "<br>";
+  }
+  document.getElementById("piles").innerHTML = strPiles;
 };
 
 // TODO: Get input from user(s)/ai
 selectMove = (piles, legalMoves) => {
-  move = legalMoves[Math.floor(Math.random() * legalMoves.length)];
-  pile = Math.floor(Math.random() * piles.length);
-  while (piles[pile] < move || piles[pile] == 0) {
-    move = legalMoves[Math.floor(Math.random() * legalMoves.length)];
-    pile = Math.floor(Math.random() * piles.length);
+  let amountRadio = document.getElementsByName("takeAmount");
+  let pileRadio = document.getElementsByName("takePile");
+  let amount, pile;
+
+  for (element of amountRadio) {
+    if (element.checked) {
+      amount = Number.parseInt(element.value);
+      break;
+    }
   }
 
-  console.log('Move', [move, pile]); // DO NOT REMOVE
-  return [move, pile];
+  for (element of pileRadio) {
+    if (element.checked) {
+      pile = Number.parseInt(element.value) - 1;
+      break;
+    }
+  }
+
+  console.log('Move', [amount, pile]);
+  game.takeTurn(amount, pile);
+  displayPiles(game.piles);
+  console.log('State', game.piles);
+  if (game.gameOver) {
+    displayWinner();
+  }
 };
 
 displayWinner = (winner) => {
-  console.log("Winner: player " + winner);
-}
+  document.getElementById("winner").innerHTML = "Winner: " + (game.winner ? 1 : 2);
+};
 
-while (!game.gameOver) {
-  displayPiles(game.piles);
-
-  let move = selectMove(game.piles, game.legalMoves);
-
-  game.takeTurn(move[0], move[1]);
-}
-
-displayWinner(game.winner ? 1 : 2);
-
-delete game;
+displayPiles(game.piles);
