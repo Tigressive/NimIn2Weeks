@@ -18,10 +18,37 @@
 
   <body>
     <h1 style="text-align: center;">Nim</h1>
-    <div style="background-color: lightblue; height: 600px; max-width: 500; min-width: 400;">
-        <h1>Hey</h1>
+    <div style="background-color: lightblue; height: 90%; width: 100%;">
+        <h1>Nim</h1>
+        <div id="piles" style="font-size: 48px; font-weight: bold; font-family: '' ">
+          <!-- Dynamically Generated -->
+        </div>
+        <div class="moveRadio" id="takeAmountDiv">
+          <h3>Amount to take</h3>
+          <input type="radio" name="takeAmount" value="1" checked>
+          <label for="takeAmount">One</label><br>
+          <input type="radio" name="takeAmount" value="2">
+          <label for="takeAmount">Two</label><br>
+        </div>
+        <div class="moveRadio" id="takePileDiv">
+          <h3>Pile to take from</h3>
+          <input type="radio" name="takePile" id="takePile1" value="1" checked>
+          <label for="takePile">One</label><br>
+          <input type="radio" name="takePile" id="takePile2" value="2">
+          <label for="takePile">Two</label><br>
+          <input type="radio" name="takePile" id="takePile3" value="3">
+          <label for="takePile">Three</label><br>
+          <input type="radio" name="takePile" id="takePile4" value="4">
+          <label for="takePile">Four</label><br>
+        </div>
+        <br>
+        <button type="button" onclick="selectMove(game.piles, game.legalMoves);">Make move</button>
+        <p id="playerToGo"></p>
+        <h1 id="winner"></h1>
     </div>
+    
 
     <script src="nim.js"></script>
   </body>
+  
 </html>

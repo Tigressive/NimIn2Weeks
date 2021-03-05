@@ -1,16 +1,6 @@
-let difficulty = "Medium";
-let misere = false;
-
-switch (difficulty) {
-  case "Easy": difficulty = 1; break;
-  case "Medium": difficulty = 2; break;
-  case "Hard": difficulty = 3; break;
-  default: difficulty = 2;
-}
-
 class Game {
-  piles = [3, 3];
-  legalMoves = [1, 2, 4];
+  piles = [26, 26];
+  legalMoves = [1, 2];
   turn = true;
   gameOver = false;
   winner = true;
@@ -20,12 +10,13 @@ class Game {
     this.takeLastWin = takeWin;
     switch (difficulty) {
       case 1:
-        piles = [21];
+        this.piles = [3, 3];
+        break;
       case 2:
-        piles = [26, 26];
+        this.piles = [2, 5, 7];
         break;
       case 3:
-        piles = [31, 31, 31];
+        this.piles = [2, 3, 8, 9];
         break;
       default:
         break;
@@ -58,7 +49,7 @@ class Game {
 
   takeTurn(move, pile) {
     if (
-      !legalMoves.includes(move) ||
+      !this.legalMoves.includes(move) ||
       pile > this.piles.length ||
       this.piles[pile] < move ||
       this.gameOver
@@ -67,9 +58,9 @@ class Game {
     }
 
     this.piles[pile] -= move;
-    temp = true;
+    let temp = true;
 
-    for (i = 0; i < this.piles.length; i++) {
+    for (let i = 0; i < this.piles.length; i++) {
       if (this.piles[i] > 0) {
         temp = false;
       }
@@ -78,9 +69,9 @@ class Game {
     if (temp) {
       this.gameOver = true;
       if (this.takeLastWin) {
-        winner = this.turn;
+        this.winner = this.turn;
       } else {
-        winner = !this.turn;
+        this.winner = !this.turn;
       }
     }
 
@@ -89,29 +80,76 @@ class Game {
   }
 }
 
-let game = Game(difficulty, misere);
+let difficulty = "Medium";
+let misere = false;
+
+switch (difficulty) {
+  case "Easy":
+    difficulty = 1;
+    break;
+  case "Medium":
+    difficulty = 2;
+    break;
+  case "Hard":
+    difficulty = 3;
+    break;
+  default:
+    difficulty = 2;
+}
+
+let game = new Game(difficulty, misere);
 
 // TODO: Render piles for user
 displayPiles = (piles) => {
-  console.log(piles);
-}
+  let strPiles = "";
+  let img = new Image;
+  img.src = "images/fire.png";
+  img.width = 50;
+  for (let pile of piles) {
+    for (let i = 0; i < pile; i++) {
+      strPiles += img.outerHTML;
+    
+    }
+    strPiles += "<br>";
+  }
+  document.getElementById("piles").innerHTML = strPiles;
+};
 
 // TODO: Get input from user(s)/ai
 selectMove = (piles, legalMoves) => {
-  move = legalMoves[Math.floor(Math.random() * legalMoves.length)];
-  pile = Math.floor(Math.random() * piles.length);
-  while (piles[pile] < move || piles[pile] == 0) {
-    move = legalMoves[Math.floor(Math.random() * legalMoves.length)];
-    pile = Math.floor(Math.random() * piles.length);
+  let amountRadio = document.getElementsByName("takeAmount");
+  let pileRadio = document.getElementsByName("takePile");
+  let amount, pile;
+
+  for (element of amountRadio) {
+    if (element.checked) {
+      amount = Number.parseInt(element.value);
+      break;
+    }
   }
 
-  return [move, pile];
-}
+  for (element of pileRadio) {
+    if (element.checked) {
+      pile = Number.parseInt(element.value) - 1;
+      break;
+    }
+  }
 
-while (!game.gameOver()) {
-  displayPiles(game.piles());
+  console.log("Move", [amount, pile]);
+  game.takeTurn(amount, pile);
+  displayPiles(game.piles);
+  console.log("State", game.piles);
+  if (game.gameOver) {
+    displayWinner();
+  }
+};
 
-  selectMove(game.piles(), game.legalMoves());
-  
-  game.takeTurn(move, pile);
-}
+displayWinner = (winner) => {
+  document.getElementById("winner").innerHTML =
+    "Winner: " + (game.winner ? 1 : 2);
+};
+
+displayPiles(game.piles);
+
+
+
