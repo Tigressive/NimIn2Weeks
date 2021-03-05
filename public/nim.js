@@ -131,17 +131,18 @@ selectMove = (piles, legalMoves) => {
     }
   }
 
-  console.log('Move', [amount, pile]);
+  console.log("Move", [amount, pile]);
   game.takeTurn(amount, pile);
   displayPiles(game.piles);
-  console.log('State', game.piles);
+  console.log("State", game.piles);
   if (game.gameOver) {
     displayWinner();
   }
 };
 
 displayWinner = (winner) => {
-  document.getElementById("winner").innerHTML = "Winner: " + (game.winner ? 1 : 2);
+  document.getElementById("winner").innerHTML =
+    "Winner: " + (game.winner ? 1 : 2);
 };
 
 displayPiles(game.piles);
