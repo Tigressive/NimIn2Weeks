@@ -173,3 +173,10 @@ float:right;
           background-color:rgba(0, 0, 0, 0);
           z-index:300000;
         }
+
+
+.piles {
+  border: 7px solid #000000;
+  margin: auto;
+  
+}
