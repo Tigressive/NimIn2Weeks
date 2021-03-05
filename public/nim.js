@@ -102,9 +102,13 @@ let game = new Game(difficulty, misere);
 // TODO: Render piles for user
 displayPiles = (piles) => {
   let strPiles = "";
+  let img = new Image;
+  img.src = "images/fire.png";
+  img.width = 50;
   for (let pile of piles) {
     for (let i = 0; i < pile; i++) {
-      strPiles += "| ";
+      strPiles += img.outerHTML;
+    
     }
     strPiles += "<br>";
   }
@@ -131,17 +135,21 @@ selectMove = (piles, legalMoves) => {
     }
   }
 
-  console.log('Move', [amount, pile]);
+  console.log("Move", [amount, pile]);
   game.takeTurn(amount, pile);
   displayPiles(game.piles);
-  console.log('State', game.piles);
+  console.log("State", game.piles);
   if (game.gameOver) {
     displayWinner();
   }
 };
 
 displayWinner = (winner) => {
-  document.getElementById("winner").innerHTML = "Winner: " + (game.winner ? 1 : 2);
+  document.getElementById("winner").innerHTML =
+    "Winner: " + (game.winner ? 1 : 2);
 };
 
 displayPiles(game.piles);
+
+
+
