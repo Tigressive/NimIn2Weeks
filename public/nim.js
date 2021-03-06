@@ -127,8 +127,8 @@ selectMove = (piles, legalMoves) => {
 
   if (playStyle == "Single" && game.turn == false) {
     let move = get_move(piles, legalMoves, misere, difficulty / 3);
-    amount = move[0];
-    pile = move[1];
+    amount = move[1];
+    pile = move[0];
   } else {
     let amountRadio = document.getElementsByName("takeAmount");
     let pileRadio = document.getElementsByName("takePile");
