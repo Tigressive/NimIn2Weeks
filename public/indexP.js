@@ -28,10 +28,9 @@ const handleStartClick = (evt) => {
 
   // TODO: Send difficulty to nim on other side.
 
-  localStorage.setItem('nim_options_difficulty', difficulty);
-  localStorage.setItem('nim_options_misere', misere);
-  localStorage.setItem('nim_options_play_style', ps);
-  
+  localStorage.setItem("nim_options_difficulty", difficulty);
+  localStorage.setItem("nim_options_misere", misere);
+  localStorage.setItem("nim_options_play_style", ps);
 
   document.location.href = "nim.html";
 };
