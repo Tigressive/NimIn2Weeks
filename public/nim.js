@@ -80,8 +80,9 @@ class Game {
   }
 }
 
-let difficulty = "Medium";
-let misere = false;
+let difficulty = localStorage.getItem("nim_options_difficulty");
+let misere = localStorage.getItem("nim_options_misere");
+let playStyle = localStorage.getItem("nim_options_play_style");
 
 switch (difficulty) {
   case "Easy":
@@ -102,13 +103,12 @@ let game = new Game(difficulty, misere);
 // TODO: Render piles for user
 displayPiles = (piles) => {
   let strPiles = "";
-  let img = new Image;
+  let img = new Image();
   img.src = "images/fire.png";
   img.width = 50;
   for (let pile of piles) {
     for (let i = 0; i < pile; i++) {
       strPiles += img.outerHTML;
-    
     }
     strPiles += "<br>";
   }
@@ -117,21 +117,28 @@ displayPiles = (piles) => {
 
 // TODO: Get input from user(s)/ai
 selectMove = (piles, legalMoves) => {
-  let amountRadio = document.getElementsByName("takeAmount");
-  let pileRadio = document.getElementsByName("takePile");
   let amount, pile;
 
-  for (element of amountRadio) {
-    if (element.checked) {
-      amount = Number.parseInt(element.value);
-      break;
-    }
-  }
+  if (playStyle == "Single" && game.turn == 2) {
+    let move = get_move(piles, legalMoves, misere, difficulty / 3);
+    amount = move[0];
+    pile = move[1];
+  } else {
+    let amountRadio = document.getElementsByName("takeAmount");
+    let pileRadio = document.getElementsByName("takePile");
 
-  for (element of pileRadio) {
-    if (element.checked) {
-      pile = Number.parseInt(element.value) - 1;
-      break;
+    for (element of amountRadio) {
+      if (element.checked) {
+        amount = Number.parseInt(element.value);
+        break;
+      }
+    }
+
+    for (element of pileRadio) {
+      if (element.checked) {
+        pile = Number.parseInt(element.value) - 1;
+        break;
+      }
     }
   }
 
@@ -150,6 +157,3 @@ displayWinner = (winner) => {
 };
 
 displayPiles(game.piles);
-
-
-
