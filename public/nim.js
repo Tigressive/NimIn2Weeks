@@ -83,19 +83,59 @@ class Game {
 let difficulty = localStorage.getItem("nim_options_difficulty");
 let misere = localStorage.getItem("nim_options_misere") == "true";
 let playStyle = localStorage.getItem("nim_options_play_style");
+let takePile1 = document.getElementById("takePile1")
+let takePile2 = document.getElementById("takePile2")
+let takePile3 = document.getElementById("takePile3")
+let takePile4 = document.getElementById("takePile4")
+let tekaPile1 = document.getElementById("tekaPile1")
+let tekaPile2 = document.getElementById("tekaPile2")
+let tekaPile3 = document.getElementById("tekaPile3")
+let tekaPile4 = document.getElementById("tekaPile4")
 
 switch (difficulty) {
   case "Easy":
     difficulty = 1;
+    takePile1.style.visibility = "visible";
+    tekaPile1.style.visibility = "visible";
+    takePile2.style.visibility = "visible";
+    tekaPile2.style.visibility = "visible";
+    takePile3.style.visibility = "hidden";
+    tekaPile3.style.visibility = "hidden";
+    takePile4.style.visibility = "hidden";
+    tekaPile4.style.visibility = "hidden";
     break;
   case "Medium":
     difficulty = 2;
+    takePile1.style.visibility = "visible";
+    tekaPile1.style.visibility = "visible";
+    takePile2.style.visibility = "visible";
+    tekaPile2.style.visibility = "visible";
+    takePile3.style.visibility = "visible";
+    tekaPile3.style.visibility = "visible";
+    takePile4.style.visibility = "hidden";
+    tekaPile4.style.visibility = "hidden";
     break;
   case "Hard":
     difficulty = 3;
+    takePile1.style.visibility = "visible";
+    tekaPile1.style.visibility = "visible";
+    takePile2.style.visibility = "visible";
+    tekaPile2.style.visibility = "visible";
+    takePile3.style.visibility = "visible";
+    tekaPile3.style.visibility = "visible";
+    takePile4.style.visibility = "visible";
+    tekaPile4.style.visibility = "visible";
     break;
   default:
     difficulty = 2;
+    takePile1.style.visibility = "visible";
+    tekaPile1.style.visibility = "visible";
+    takePile2.style.visibility = "visible";
+    tekaPile2.style.visibility = "visible";
+    takePile3.style.visibility = "visible";
+    tekaPile3.style.visibility = "visible";
+    takePile4.style.visibility = "hidden";
+    tekaPile4.style.visibility = "hidden";
 }
 
 let game = new Game(difficulty, !misere);
