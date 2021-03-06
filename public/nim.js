@@ -92,51 +92,26 @@ let tekaPile2 = document.getElementById("tekaPile2")
 let tekaPile3 = document.getElementById("tekaPile3")
 let tekaPile4 = document.getElementById("tekaPile4")
 
+diff = 0
 switch (difficulty) {
-  case "Easy":
-    difficulty = 1;
-    takePile1.style.visibility = "visible";
-    tekaPile1.style.visibility = "visible";
-    takePile2.style.visibility = "visible";
-    tekaPile2.style.visibility = "visible";
-    takePile3.style.visibility = "hidden";
-    tekaPile3.style.visibility = "hidden";
-    takePile4.style.visibility = "hidden";
-    tekaPile4.style.visibility = "hidden";
-    break;
-  case "Medium":
-    difficulty = 2;
-    takePile1.style.visibility = "visible";
-    tekaPile1.style.visibility = "visible";
-    takePile2.style.visibility = "visible";
-    tekaPile2.style.visibility = "visible";
-    takePile3.style.visibility = "visible";
-    tekaPile3.style.visibility = "visible";
-    takePile4.style.visibility = "hidden";
-    tekaPile4.style.visibility = "hidden";
-    break;
   case "Hard":
-    difficulty = 3;
-    takePile1.style.visibility = "visible";
-    tekaPile1.style.visibility = "visible";
-    takePile2.style.visibility = "visible";
-    tekaPile2.style.visibility = "visible";
-    takePile3.style.visibility = "visible";
-    tekaPile3.style.visibility = "visible";
+    diff++;
     takePile4.style.visibility = "visible";
     tekaPile4.style.visibility = "visible";
-    break;
+  case "Medium":
   default:
-    difficulty = 2;
+    diff++;
+    takePile3.style.visibility = "visible";
+    tekaPile3.style.visibility = "visible";
+  case "Easy":
+    diff++;
     takePile1.style.visibility = "visible";
     tekaPile1.style.visibility = "visible";
     takePile2.style.visibility = "visible";
     tekaPile2.style.visibility = "visible";
-    takePile3.style.visibility = "visible";
-    tekaPile3.style.visibility = "visible";
-    takePile4.style.visibility = "hidden";
-    tekaPile4.style.visibility = "hidden";
 }
+
+difficulty = diff;
 
 let game = new Game(difficulty, !misere);
 
