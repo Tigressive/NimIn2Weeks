@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+
+
 var connectionString = 'mongodb+srv://admin:admin@cluster0.c5trx.mongodb.net/test';
 
 mongoose.connect(connectionString, {
@@ -38,8 +40,9 @@ exports.signupPost = (req, res) => {
             email: body.email,
             gamesWon: 0
         };
-        
+     
         addUserToDb(signupInput);
+        res.sendfile("./public/login.html");
     });
 };
 
@@ -61,16 +64,11 @@ exports.loginPost = async (req, res) => {
         }
 
         console.log(req.session.user.username)
-      
-        //res.redirect("/");
+        res.sendfile("./public/index.html");
+        
     } else {
-        var model = {
-            message: "Username or password are invalid!",
-            "title": "Login",
-            "nav":nav
-        };
-
-      
+       
+        res.sendfile("./public/login.html");
     }
 };
 exports.updateGamesWon = (req, res) => {
@@ -97,7 +95,6 @@ exports.logout = (req, res) => {
   }
 
 async function addUserToDb(user) {
-    console.log("poggers");
     var newUser = new User(user);
     await newUser.save();
 }
