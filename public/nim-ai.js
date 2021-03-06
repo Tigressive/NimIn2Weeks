@@ -18,7 +18,7 @@ const get_random_move = (heaps, moves) => {
     }
   }
   heap = Math.max(...heaps);
-  return [heaps.indexOf(heap), moves.min()];
+  return [heaps.indexOf(heap), Math.min(...moves)];
 };
 
 /**
