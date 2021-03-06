@@ -92,6 +92,15 @@ let tekaPile2 = document.getElementById("tekaPile2")
 let tekaPile3 = document.getElementById("tekaPile3")
 let tekaPile4 = document.getElementById("tekaPile4")
 
+takePile1.style.visibility = "hidden";
+tekaPile1.style.visibility = "hidden";
+takePile2.style.visibility = "hidden";
+tekaPile2.style.visibility = "hidden";
+takePile3.style.visibility = "hidden";
+tekaPile3.style.visibility = "hidden";
+takePile4.style.visibility = "hidden";
+tekaPile4.style.visibility = "hidden";
+
 diff = 0
 switch (difficulty) {
   case "Hard":
