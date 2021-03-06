@@ -8,17 +8,16 @@
  *
  * @return {Array} List of two values. The first is the index of the heap chosen to play at, the second is the move played.
  */
-//! THIS IS CURRENTLY UNTESTED
 const get_random_move = (heaps, moves) => {
   for (let heap of heaps) {
-    if (heap > moves.max()) {
+    if (heap > Math.max(...moves)) {
       return [
         heaps.indexOf(heap),
         moves[Math.floor(Math.random() * moves.length)],
       ];
     }
   }
-  heap = heaps.max();
+  heap = Math.max(...heaps);
   return [heaps.indexOf(heap), moves.min()];
 };
 
@@ -32,7 +31,6 @@ const get_random_move = (heaps, moves) => {
  *
  * @returns {Array} List of two values. The first is the index of the heap chosen to play at, the second is the move played.
  */
-//! THIS IS CURRENTLY UNTESTED
 const get_move = (heaps, moves, misere = false, difficulty = 1.0) => {
   // Begin with random selection
   if (Math.random() >= difficulty) {
@@ -44,7 +42,7 @@ const get_move = (heaps, moves, misere = false, difficulty = 1.0) => {
 
   if (misere && endgame) {
     let remaining = heaps.reduce((x) => (x > 0 ? 1 : 0), 0);
-    let max_heap = heaps.max();
+    let max_heap = Math.max(...heaps);
     let max_index = heaps.indexOf(max_heap);
     let ideal_move = max_heap - (remaining % 2);
 
