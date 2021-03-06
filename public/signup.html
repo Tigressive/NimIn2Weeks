@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nim</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="signup.css" />
     <script src="indexP.js"></script>
 
 
@@ -19,12 +19,16 @@
     </div>
   </head>
 <body>
-  <form action="http://localhost:3001/signup" method="POST">
+  <img class="logo" src="images/Retrowave_Logo.png" width="1200px">
+  <img class="signup" src="images/signup.png">
+  <form class ="inputs" action="http://localhost:3001/signup" method="POST">
+    <div id="boxes">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username"><br><br>
     <label for="password">Password:</label>
     <input type="password" id="password" name="password"><br><br>
     <input type="submit" value="Login">
+    </div>
   </form>
   <a href="signup.html">Create Account</a>
 </body>
