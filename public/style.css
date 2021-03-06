@@ -1,4 +1,8 @@
+html {
+  background-color: black;
+  overflow: hidden;
 
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -57,4 +61,122 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+
+
+
+
+/* This is styling for the dropdown nav button */
+.dropbtn {
+  background-color: #4caf4f00;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f100;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content a:hover {background-color: rgba(221, 221, 221, 0);}
+
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+
+
+
+
+
+
+
+#video_box{
+  width: auto;
+  height: auto;
+}
+
+#difficulty_video_overlays {
+position:absolute;
+margin-left: 85ch;
+margin-top: 80ch;
+float:right;
+  width:640px;
+  min-height:370px;
+  background-color:rgba(0, 0, 0, 0);
+  z-index:300000;
+}
+
+#nav_video_overlays {
+  position:absolute;
+  float:right;
+    width:640px;
+    min-height:370px;
+    background-color:rgba(0, 0, 0, 0);
+    z-index:300000;
+  }
+
+  #switch_video_overlays {
+    position:absolute;
+    margin-left: 210ch;
+    margin-top: 1ch;
+    float:right;
+      width:640px;
+      min-height:370px;
+      background-color:rgba(0, 0, 0, 0);
+      z-index:300000;
+    }
+
+    #start_video_overlays {
+      position:absolute;
+      margin-left: 108ch;
+      margin-top: 80ch;
+      float:right;
+        min-height:370px;
+        background-color:rgba(0, 0, 0, 0);
+        z-index:300000;
+      }
+
+      #multi_video_overlays {
+        position:absolute;  
+        margin-left: 135ch;        
+        margin-top: 80ch;
+        float:right;
+          width:640px;
+          min-height:370px;
+          background-color:rgba(0, 0, 0, 0);
+          z-index:300000;
+        }
+
+
+.piles {
+  border: 7px solid #000000;
+  margin: auto;
+  
 }

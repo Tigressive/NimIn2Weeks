@@ -4,14 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>"OnLiNe NiM ClIenT"</title>
+    <title>Online Nim Client</title>
     <link rel="stylesheet" href="style.css" />
+
+    <div class="dropdown"> 
+      <button class="dropbtn">Menu</button>
+      <div class="dropdown-content">
+        <a href="index.html">Home</a>
+        <a href="about.html">Learn to Play</a>
+      </div>
+    </div>
   </head>
 
   <body>
     <h1 style="text-align: center;">Nim</h1>
-    <div style="background-color: lightblue; height: 600px; max-width: 500; min-width: 400;">
-        <h1>Hey</h1>
+    <div style="background-color: lightblue; height: 90%; width: 100%; text-align: center; justify-content: center;">
+        <h1>Nim</h1>
+        <div id="piles" style=" color:aqua;  font-size: 48px; font-weight: bold; font-family: '' ">
+          <!-- Dynamically Generated -->
+        </div>
+        <h4 id="turn"></h5>
+        <div class="moveRadio" id="takeAmountDiv">
+          <h3>Amount to take</h3>
+          <input type="radio" name="takeAmount" value="1" checked>
+          <label for="takeAmount">One</label><br>
+          <input type="radio" name="takeAmount" value="2">
+          <label for="takeAmount">Two</label><br>
+        </div>
+        <div class="moveRadio" id="takePileDiv">
+          <h3>Pile to take from</h3>
+          <input type="radio" name="takePile" id="takePile1" value="1" checked>
+          <label for="takePile" id="tekaPile1">One</label><br>
+          <input type="radio" name="takePile" id="takePile2" value="2">
+          <label for="takePile" id="tekaPile2">Two</label><br>
+          <input type="radio" name="takePile" id="takePile3" value="3">
+          <label for="takePile" id="tekaPile3">Three</label><br>
+          <input type="radio" name="takePile" id="takePile4" value="4">
+          <label for="takePile" id="tekaPile4">Four</label><br>
+        </div>
+        <br>
+        <button type="button" onclick="selectMove(game.piles, game.legalMoves);" id="makeMoveBtn">Make move</button>
+        <p id="playerToGo"></p>
+        <h1 id="winner"></h1>
     </div>
+    <script src="nim-ai.js"></script>
+    <script src="nim.js"></script>
   </body>
+  
 </html>

@@ -6,23 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nim</title>
     <link rel="stylesheet" href="style.css" />
+
+
+    
   </head>
 
   <body>
-    <h1>Welcome to Nim</h1>
-    <label class="switch">
-      <input type="checkbox">
-      <span class="slider round"></span>
-    </label><h4>Lose by taking the last token</h4>
-    <div style="background-color: lightblue; height: 600px; max-width: 500; min-width: 400;">
-    </div>
-    <nav>
-      <button type="button" name="easyButton" formtarget="_self">Easy</button>
-      <button type="button" name="meduimButton" formtarget="_self">Meduim</button>
-      <button type="button" name="hardButton" formtarget="_self">Hard</button>
-      <button type="button" name="firstButton" formtarget="_self">1 Player</button>
-      <button type="button" name="secondButton" formtarget="_self">2 Player</button>
-    </nav>
+    
+    <!-- <h1 style="text-align: center; 
+              justify-content: center;
+              font-size: 80px; 
+              background-color: brown;
+              height: 100px;">Welcome to Nim</h1> -->
+              
 
+    
+    <div id="videoBox" style="background-color: rgba(173, 216, 230, 0);">
+      
+        <div id="difficulty_video_overlays"> 
+            <input type="radio" id="easy" name="difficulty" value="Easy">
+            <img position=center width="70px" src="images/easy.png" for="easy"></label><br>
+            <input type="radio" id="medium" name="difficulty" value="Medium">
+            <img position=center width="105px" src="images/medium.png" for="medium"></image><br>
+            <input type="radio" id="hard" name="difficulty" value="Hard">
+            <img width="70px" src="images/hard.png" for="hard"></label>
+        </div>
+
+        <div id="switch_video_overlays">
+          <div>
+            <label class="switch">
+                <input type="checkbox" id="misere" />
+                <span class="slider round"></span>
+            </label>
+            <h4 style="color: aliceblue;">Lose by taking the last token</h4>
+          </div>
+        </div>
+
+        <div id="multi_video_overlays">
+          
+            <input type="radio" id="single" name="playStyle" value="Single">
+            <input type="image" width="210px" src="images/singleplayer.png" id="single"></input><br>
+            <input type="radio" id="multi" name="playStyle" value="Multi">
+            <input type="image" width="200px" src="images/multiplayer.png" id="multi"></input><br>
+          
+        </div>
+
+        <div id="nav_video_overlays">
+          <div class="dropdown"> 
+            <input type="image" width="75px" src="images/menu.png" class="dropbtn"></button>
+            <div class="dropdown-content">
+              <a href="about.html">Learn to Play</a>
+              <a href="leaderboard.html">Leaderboards</a>
+              <a href="login.html">Login</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="start_video_overlays">
+        <input type="image" width="200px" src="images/start.png" id="btnStart"></input>
+       </div>
+        
+    
+        <video id="video" src="images/nim_main_menu-3.mp4" autoplay="autoplay" loop></video>
+        </div>    
+    </nav>
+    <script src="indexP.js"></script>
   </body>
 </html>
