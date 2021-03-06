@@ -60,8 +60,8 @@ const get_move = (heaps, moves, misere = false, difficulty = 1.0) => {
     
     for (let i = 0; i < heaps.length; i++) {
       target_size = heaps[i] ^ nim_sum;
-      if (target_size < heap && moves.includes(heap - target_size)) {
-        return [i, heap - target_size];
+      if (target_size < heaps[i] && moves.includes(heaps[i] - target_size)) {
+        return [i, heaps[i] - target_size];
       }
     }
   }
