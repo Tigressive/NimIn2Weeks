@@ -81,7 +81,7 @@ class Game {
 }
 
 let difficulty = localStorage.getItem("nim_options_difficulty");
-let misere = localStorage.getItem("nim_options_misere");
+let misere = localStorage.getItem("nim_options_misere") == "true";
 let playStyle = localStorage.getItem("nim_options_play_style");
 
 switch (difficulty) {
@@ -98,7 +98,13 @@ switch (difficulty) {
     difficulty = 2;
 }
 
-let game = new Game(difficulty, misere);
+let game = new Game(difficulty, !misere);
+
+displayTurn = (turn) => {
+  document.getElementById("turn").innerHTML = "Turn: " + (game.turn ? 1 : 2);
+}
+
+displayTurn(game.turn);
 
 // TODO: Render piles for user
 displayPiles = (piles) => {
@@ -119,7 +125,7 @@ displayPiles = (piles) => {
 selectMove = (piles, legalMoves) => {
   let amount, pile;
 
-  if (playStyle == "Single" && game.turn == 2) {
+  if (playStyle == "Single" && game.turn == false) {
     let move = get_move(piles, legalMoves, misere, difficulty / 3);
     amount = move[0];
     pile = move[1];
@@ -144,6 +150,7 @@ selectMove = (piles, legalMoves) => {
 
   console.log("Move", [amount, pile]);
   game.takeTurn(amount, pile);
+  displayTurn(game.turn);
   displayPiles(game.piles);
   console.log("State", game.piles);
   if (game.gameOver) {
