@@ -3,7 +3,6 @@ const routes = require("./routes/routes");
 const bodyParser = require("body-parser");
 const expressSession = require('express-session');
 const cookieParser = require('cookie-parser');
-
 const app = express();
 
 let urlencodedParser = bodyParser.urlencoded({
@@ -13,7 +12,6 @@ app.use(function(req,res,next){
     res.locals.session = req.session;
     next();
 });
-
 app.use(cookieParser('whatever'));
 
 app.use(expressSession({
