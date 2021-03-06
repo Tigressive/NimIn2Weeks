@@ -118,8 +118,8 @@ input:checked + .slider:before {
 
 
 #video_box{
-  float:left;
-  object-fit: fill;
+  width: auto;
+  height: auto;
 }
 
 #difficulty_video_overlays {
