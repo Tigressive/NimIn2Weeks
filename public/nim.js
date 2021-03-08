@@ -83,26 +83,49 @@ class Game {
 let difficulty = localStorage.getItem("nim_options_difficulty");
 let misere = localStorage.getItem("nim_options_misere") == "true";
 let playStyle = localStorage.getItem("nim_options_play_style");
+let takePile1 = document.getElementById("takePile1");
+let takePile2 = document.getElementById("takePile2");
+let takePile3 = document.getElementById("takePile3");
+let takePile4 = document.getElementById("takePile4");
+let tekaPile1 = document.getElementById("tekaPile1");
+let tekaPile2 = document.getElementById("tekaPile2");
+let tekaPile3 = document.getElementById("tekaPile3");
+let tekaPile4 = document.getElementById("tekaPile4");
 
+takePile1.style.visibility = "hidden";
+tekaPile1.style.visibility = "hidden";
+takePile2.style.visibility = "hidden";
+tekaPile2.style.visibility = "hidden";
+takePile3.style.visibility = "hidden";
+tekaPile3.style.visibility = "hidden";
+takePile4.style.visibility = "hidden";
+tekaPile4.style.visibility = "hidden";
+
+diff = 0;
 switch (difficulty) {
-  case "Easy":
-    difficulty = 1;
-    break;
-  case "Medium":
-    difficulty = 2;
-    break;
   case "Hard":
-    difficulty = 3;
-    break;
+    diff++;
+    takePile4.style.visibility = "visible";
+    tekaPile4.style.visibility = "visible";
+  case "Medium":
   default:
-    difficulty = 2;
+    diff++;
+    takePile3.style.visibility = "visible";
+    tekaPile3.style.visibility = "visible";
+  case "Easy":
+    diff++;
+    takePile1.style.visibility = "visible";
+    tekaPile1.style.visibility = "visible";
+    takePile2.style.visibility = "visible";
+    tekaPile2.style.visibility = "visible";
 }
+difficulty = diff;
 
 let game = new Game(difficulty, !misere);
 
-displayTurn = (turn) => {
+displayTurn = () => {
   document.getElementById("turn").innerHTML = "Turn: " + (game.turn ? 1 : 2);
-}
+};
 
 displayTurn(game.turn);
 
@@ -123,12 +146,14 @@ displayPiles = (piles) => {
 
 // TODO: Get input from user(s)/ai
 selectMove = (piles, legalMoves) => {
+  document.getElementById("makeMoveBtn").disabled = false;
   let amount, pile;
 
   if (playStyle == "Single" && game.turn == false) {
     let move = get_move(piles, legalMoves, misere, difficulty / 3);
-    amount = move[0];
-    pile = move[1];
+    console.log("AI move", move);
+    amount = move[1];
+    pile = move[0];
   } else {
     let amountRadio = document.getElementsByName("takeAmount");
     let pileRadio = document.getElementsByName("takePile");
@@ -150,15 +175,20 @@ selectMove = (piles, legalMoves) => {
 
   console.log("Move", [amount, pile]);
   game.takeTurn(amount, pile);
-  displayTurn(game.turn);
+  displayTurn();
   displayPiles(game.piles);
   console.log("State", game.piles);
   if (game.gameOver) {
     displayWinner();
   }
+
+  if (playStyle == "Single" && game.turn == false) {
+    document.getElementById("makeMoveBtn").disabled = true;
+    setTimeout(() => selectMove(game.piles, game.legalMoves), 1000);
+  }
 };
 
-displayWinner = (winner) => {
+displayWinner = () => {
   document.getElementById("winner").innerHTML =
     "Winner: " + (game.winner ? 1 : 2);
 };

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>"Online Nim Client"</title>
+    <title>Online Nim Client</title>
     <link rel="stylesheet" href="style.css" />
 
     <div class="dropdown"> 
@@ -23,7 +23,7 @@
         <div id="piles" style=" color:aqua;  font-size: 48px; font-weight: bold; font-family: '' ">
           <!-- Dynamically Generated -->
         </div>
-        <h5 id="turn"></h5>
+        <h4 id="turn"></h5>
         <div class="moveRadio" id="takeAmountDiv">
           <h3>Amount to take</h3>
           <input type="radio" name="takeAmount" value="1" checked>
@@ -34,16 +34,16 @@
         <div class="moveRadio" id="takePileDiv">
           <h3>Pile to take from</h3>
           <input type="radio" name="takePile" id="takePile1" value="1" checked>
-          <label for="takePile">One</label><br>
+          <label for="takePile" id="tekaPile1">One</label><br>
           <input type="radio" name="takePile" id="takePile2" value="2">
-          <label for="takePile">Two</label><br>
+          <label for="takePile" id="tekaPile2">Two</label><br>
           <input type="radio" name="takePile" id="takePile3" value="3">
-          <label for="takePile">Three</label><br>
+          <label for="takePile" id="tekaPile3">Three</label><br>
           <input type="radio" name="takePile" id="takePile4" value="4">
-          <label for="takePile">Four</label><br>
+          <label for="takePile" id="tekaPile4">Four</label><br>
         </div>
         <br>
-        <button type="button" onclick="selectMove(game.piles, game.legalMoves);">Make move</button>
+        <button type="button" onclick="selectMove(game.piles, game.legalMoves);" id="makeMoveBtn">Make move</button>
         <p id="playerToGo"></p>
         <h1 id="winner"></h1>
     </div>

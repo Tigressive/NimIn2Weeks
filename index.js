@@ -1,5 +1,7 @@
 const express = require("express");
+const bodyParser = require('body-parser')
 const routes = require("./routes/routes");
+
 const bodyParser = require("body-parser");
 const expressSession = require('express-session');
 const cookieParser = require('cookie-parser');
@@ -22,6 +24,7 @@ app.use(expressSession({
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static(__dirname + "/public"));
 
 
@@ -31,5 +34,6 @@ app.post('/signup', urlencodedParser, routes.signupPost);
 app.post('/login', urlencodedParser, routes.loginPost);
 app.get('/logout',routes.logout);
 app.patch('/updateGamesWon', routes.updateGamesWon)
+
 
 app.listen(3001);
