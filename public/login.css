@@ -2,21 +2,41 @@
 html {
     background-color: rgb(0, 0, 0);
     overflow: hidden;
+    background: #a64bf4;
+    background: -webkit-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+    background: -o-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+    background: -moz-linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+    background: linear-gradient(right, #00dbde, #fc00ff, #00dbde, #fc00ff);
+  }
+
+  .form{
+    margin: auto;
+  background-color: whitesmoke;
+  width:25%;
+  border-radius: 15px;
+  height: 540px;
   }
 
 .inputs {
     margin: auto;
-    width: 20%;
     padding: 10px;
+    width: 100%;    
   }
 
   #boxes{
     margin: auto;
-    width: 50%;
+    width: 45%;
     padding: 10px;
+    height: fit-content;
+    position: relative;
+    line-height: 1.5;
+    display: block;
+    font-size: 16px;
+    
   }
   .login{
     display: block;
+    margin-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
     width: 10%;  
@@ -24,7 +44,7 @@ html {
 
   .create{
     display: block;
-    margin-left: auto;
+    margin-left: 885px;
     margin-right: auto;
     width: 10%;  
   }
