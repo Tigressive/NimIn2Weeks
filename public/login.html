@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nim</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login.css" />
     <script src="indexP.js"></script>
 
     <div class="dropdown"> 
@@ -22,19 +22,24 @@
 
 <body>
   <h3 id="loggedInUser">
-
-  <form action="http://localhost:3001/login" method="POST">
+  <img class="logo" src="images/Retrowave_Logo.png" width="1200px">
+  <div class="form">
+  <img class="login" src="images/login.png">
+  <form class="inputs" action="http://localhost:3001/login" method="POST">
+    <div id="boxes">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username"><br><br>
     <label for="password">Password:</label>
     <input type="password" id="password" name="password"><br><br>
     <input type="submit" value="Login">
+    <form class="create" action="signup.html">
+      <input type="submit" value="Create New Account" />
+     </form>
+    </div>
+  </div>
   </form>
 
-  <form action="signup.html">
-    <input type="submit" value="Create New Account" />
-   
-  </form>
+  
   <script src="login.js"></script>
 </body>
 
