@@ -15,7 +15,14 @@ html {
     width: 50%;
     padding: 10px;
   }
-  .signup{
+  .login{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;  
+  }
+
+  .create{
     display: block;
     margin-left: auto;
     margin-right: auto;
